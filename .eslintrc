@@ -22,26 +22,17 @@
   "env": {
     "browser": true,
     "amd": true,
-    "node": true,
-    "jest": true
+    "node": true
   },
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
-    "plugin:jest/recommended",
     "plugin:prettier/recommended" // Make sure this is always the last element in the array.
   ],
-  "plugins": ["simple-import-sort", "prettier", "jest"],
+  "plugins": ["simple-import-sort", "prettier"],
   "rules": {
-    "prettier/prettier": [
-      "error",
-      {},
-      { "usePrettierrc": true },
-      {
-        "endOfLine": "auto"
-      }
-    ],
+    "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
     "react/react-in-jsx-scope": "off",
     "jsx-a11y/accessible-emoji": "off",
     "react/prop-types": "off",
@@ -65,9 +56,16 @@
       }
     },
     {
+      "files": ["**/*.tsx"],
+      "rules": {
+        "no-undef": "off"
+      }
+    },
+    {
       "files": ["**/*types.ts"],
       "rules": {
-        "no-unused-vars": "off"
+        "no-unused-vars": "off",
+        "no-undef": "off"
       }
     }
   ]

@@ -1,3 +1,5 @@
+import React from "react";
+
 import { IBase } from "@/types";
 
 export interface Info {

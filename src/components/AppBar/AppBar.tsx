@@ -1,13 +1,12 @@
 import clsx from "clsx";
 import React from "react";
 
+import BurgerIcon from "@/icons/BurgerIcon.svg?component";
+import Logo from "@/icons/Logo.svg?component";
 import { IBase } from "@/types";
 
 import useStyles from "./AppBar.styles";
 import { AppBarProps } from "./AppBar.types";
-
-import Logo from "@/icons/Logo.svg?component";
-import BurgerIcon from "@/icons/BurgerIcon.svg?component";
 
 const AppBar: React.FC<AppBarProps & IBase> = ({
   testId,

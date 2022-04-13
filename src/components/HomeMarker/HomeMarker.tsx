@@ -1,5 +1,5 @@
-import React from "react";
 import { Marker } from "@react-google-maps/api";
+import React from "react";
 
 import { HomeMarkerProps } from "./HomeMarker.types";
 

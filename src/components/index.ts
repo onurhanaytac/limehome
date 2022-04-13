@@ -1,9 +1,9 @@
 import AppBar from "./AppBar";
 import Button from "./Button";
 import Card from "./Card";
-import Map from "./Map";
-import SliderList from "./SliderList";
 import Form from "./Form";
 import FormInput from "./FormInput";
+import Map from "./Map";
+import SliderList from "./SliderList";
 
-export { AppBar, Button, Card, Map, SliderList, Form, FormInput };
+export { AppBar, Button, Card, Form, FormInput, Map, SliderList };

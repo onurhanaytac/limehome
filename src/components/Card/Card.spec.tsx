@@ -17,6 +17,7 @@ describe("<Card />", () => {
           title: "string",
         }}
         onClickBook={() => {}}
+        onClickCard={() => {}}
         testId="testId"
       />
     );

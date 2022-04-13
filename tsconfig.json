@@ -19,7 +19,6 @@
     "types": [
       "@honkhonk/vite-plugin-svgr/client",
       "vite-plugin-svgr/client",
-      "googlemaps",
       "jest"
     ],
     "typeRoots": ["./src/types", "./node_modules/@types"],

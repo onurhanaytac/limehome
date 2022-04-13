@@ -1,13 +1,14 @@
-import React from "react";
 import clsx from "clsx";
-import { Formik, Form as FormikForm } from "formik";
+import { Form as FormikForm, Formik } from "formik";
+import React from "react";
+import { v4 as uuidv4 } from "uuid";
 import * as Yup from "yup";
 
+import { Button, FormInput } from "@/components";
 import { IBase } from "@/types";
 
-import { Button, FormInput } from "@/components";
-import { FormProps } from "./Form.types";
 import useStyles from "./Form.styles";
+import { FormProps } from "./Form.types";
 
 const Form: React.FC<FormProps & IBase> = ({
   testId,
@@ -40,14 +41,20 @@ const Form: React.FC<FormProps & IBase> = ({
       >
         <Formik
           initialValues={{ firstName: "", lastName: "", email: "" }}
-          onSubmit={onSubmit}
+          onSubmit={onSubmit as any}
           validationSchema={schema}
         >
           <FormikForm>
             {data &&
               data.length &&
               data.map((item: any) => {
-                return <FormInput name={item.name} label={item.label} />;
+                return (
+                  <FormInput
+                    key={uuidv4()}
+                    name={item.name}
+                    label={item.label}
+                  />
+                );
               })}
 
             <Button

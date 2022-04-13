@@ -1,5 +1,6 @@
-import { IBase } from "@/types";
 import { FormikHelpers } from "formik";
+
+import { IBase } from "@/types";
 
 export interface FormProps extends IBase {
   data: any;

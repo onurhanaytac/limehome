@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { Map, SliderList } from "@/components";
+import { Info } from "@/components/Card/Card.types";
 import { hotelServices } from "@/services";
 import { Position } from "@/types";
-import { Info } from "@/components/Card/Card.types";
 
 const Listings: React.FC = () => {
   const history = useNavigate();
@@ -33,12 +33,12 @@ const Listings: React.FC = () => {
     map?.current?.panTo(locs.current.find((loc: any) => loc.id === e.id));
   }, []);
 
-  const onLoadMap = (_map: google.maps.Map) => {
+  const onLoadMap = useCallback((_map: google.maps.Map) => {
     map.current = _map;
 
     if (!locs?.current[0]) return;
     _map.panTo(locs.current[0] || null);
-  };
+  }, []);
 
   useEffect(() => {
     hotelServices.getHotels().then(({ infos, locations }) => {

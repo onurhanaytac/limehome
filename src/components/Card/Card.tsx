@@ -23,13 +23,18 @@ const Card: React.FC<CardProps & IBase> = ({
         data-testid={testId}
         style={style}
         className={clsx(classes.root, className)}
+        role="presentation"
         onClick={() => {
+          onClickCard(info);
+        }}
+        onKeyDown={() => {
           onClickCard(info);
         }}
       >
         <div className={classes.infoWrapper}>
           <div className={classes.infoImg}>
             <img
+              alt="img"
               className={classes.img}
               src={`https://pix10.agoda.net/hotelImages/124/1246280/1246280_16061017110043391702.jpg?ca=6&ce=1&s=1024x768`}
             />

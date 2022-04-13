@@ -1,11 +1,11 @@
-import React from "react";
 import clsx from "clsx";
+import { ErrorMessage, Field } from "formik";
+import React from "react";
 
 import { IBase } from "@/types";
 
-import { FormInputProps } from "./FormInput.types";
 import useStyles from "./FormInput.styles";
-import { ErrorMessage, Field } from "formik";
+import { FormInputProps } from "./FormInput.types";
 
 const FormInput: React.FC<FormInputProps & IBase> = ({
   testId,

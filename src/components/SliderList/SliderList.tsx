@@ -4,8 +4,8 @@ import { v4 as uuidv4 } from "uuid";
 import { IBase } from "@/types";
 
 import Card from "../Card";
-import { SliderListProps } from "./SliderList.types";
 import useStyles from "./SliderList.styles";
+import { SliderListProps } from "./SliderList.types";
 
 const SliderList: React.FC<SliderListProps & IBase> = ({
   data,
