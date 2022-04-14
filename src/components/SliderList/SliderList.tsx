@@ -8,6 +8,7 @@ import useStyles from "./SliderList.styles";
 import { SliderListProps } from "./SliderList.types";
 
 const SliderList: React.FC<SliderListProps & IBase> = ({
+  testId,
   data,
   onChangeFocus,
   onClickBook,
@@ -41,7 +42,11 @@ const SliderList: React.FC<SliderListProps & IBase> = ({
 
   return (
     <>
-      <div className={classes.root} onScroll={onScrollList}>
+      <div
+        data-testid={testId}
+        className={classes.root}
+        onScroll={onScrollList}
+      >
         {data.map((item) => {
           return (
             <div className={classes.card} key={uuidv4()}>
