@@ -2,7 +2,8 @@ import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
   root: {
-    width: "280px",
+    width: "80vw",
+    maxWidth: "608px",
     height: "224px",
     padding: "16px",
     display: "flex",

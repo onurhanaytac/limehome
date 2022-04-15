@@ -22,6 +22,8 @@ const SliderList: React.FC<SliderListProps & IBase> = ({
 
   const onScrollList = useCallback(() => {
     const slidingEl: any = scrollRef.current;
+    const [cartEl]: any = slidingEl.children;
+
     if (
       slidingEl.offsetWidth + slidingEl.scrollLeft - slidingEl.scrollWidth >
       -60
@@ -32,7 +34,9 @@ const SliderList: React.FC<SliderListProps & IBase> = ({
     if (slidingEl.scrollLeft === slidingEl.scrollWidth) {
       return (x.current = data.length - 1);
     }
-    const current = Math.floor(slidingEl.scrollLeft / 316);
+
+    const current = Math.floor(slidingEl.scrollLeft / cartEl.clientWidth);
+
     if (x.current === current) {
       return;
     }
