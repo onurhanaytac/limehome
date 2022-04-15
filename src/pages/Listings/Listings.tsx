@@ -16,12 +16,14 @@ const Listings: React.FC = () => {
   const locs = useRef<any>();
 
   const onChangeFocusSlider = useCallback((ndx: number) => {
-    const activeLoc = locs.current[ndx];
+    const activeLoc = { ...locs.current[ndx] };
 
     if (!activeLoc) return;
 
-    map?.current?.panTo(activeLoc);
     setActiveMarker(activeLoc.id);
+    setTimeout(() => {
+      map?.current?.panTo(activeLoc);
+    });
   }, []);
 
   const onClickBook = useCallback((e: Info) => {
@@ -30,7 +32,9 @@ const Listings: React.FC = () => {
 
   const onClickCard = useCallback((e: Info) => {
     setActiveMarker(e.id);
-    map?.current?.panTo(locs.current.find((loc: any) => loc.id === e.id));
+    setTimeout(() => {
+      map?.current?.panTo(locs.current.find((loc: any) => loc.id === e.id));
+    });
   }, []);
 
   const onLoadMap = useCallback((_map: google.maps.Map) => {

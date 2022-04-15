@@ -1,4 +1,5 @@
 import React, { useCallback, useRef } from "react";
+import ScrollContainer from "react-indiana-drag-scroll";
 import { v4 as uuidv4 } from "uuid";
 
 import { IBase } from "@/types";
@@ -15,20 +16,22 @@ const SliderList: React.FC<SliderListProps & IBase> = ({
   onClickCard,
 }: SliderListProps & IBase) => {
   const classes = useStyles();
+  const scrollRef = useRef<HTMLDivElement>(null);
   const x = useRef(0);
 
-  const onScrollList = useCallback((e: any) => {
+  const onScrollList = useCallback(() => {
+    const slidingEl: any = scrollRef.current;
     if (
-      e.target.offsetWidth + e.target.scrollLeft - e.target.scrollWidth >
+      slidingEl.offsetWidth + slidingEl.scrollLeft - slidingEl.scrollWidth >
       -60
     ) {
       return (x.current = data.length - 1);
     }
 
-    if (e.target.scrollLeft === e.target.scrollWidth) {
+    if (slidingEl.scrollLeft === slidingEl.scrollWidth) {
       return (x.current = data.length - 1);
     }
-    const current = Math.floor(e.target.scrollLeft / 304);
+    const current = Math.floor(slidingEl.scrollLeft / 316);
     if (x.current === current) {
       return;
     }
@@ -42,10 +45,11 @@ const SliderList: React.FC<SliderListProps & IBase> = ({
 
   return (
     <>
-      <div
+      <ScrollContainer
+        innerRef={scrollRef}
+        onScroll={onScrollList}
         data-testid={testId}
         className={classes.root}
-        onScroll={onScrollList}
       >
         {data.map((item) => {
           return (
@@ -58,7 +62,7 @@ const SliderList: React.FC<SliderListProps & IBase> = ({
             </div>
           );
         })}
-      </div>
+      </ScrollContainer>
     </>
   );
 };
