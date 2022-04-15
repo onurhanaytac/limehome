@@ -62,6 +62,7 @@ const Listings: React.FC = () => {
     <>
       <SliderList
         data={hotelInfos}
+        activeMarker={activeMarker}
         onChangeFocus={onChangeFocusSlider}
         onClickBook={onClickBook}
         onClickCard={onClickCard}

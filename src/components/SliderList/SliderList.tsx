@@ -11,6 +11,7 @@ import { SliderListProps } from "./SliderList.types";
 const SliderList: React.FC<SliderListProps & IBase> = ({
   testId,
   data,
+  activeMarker,
   onChangeFocus,
   onClickBook,
   onClickCard,
@@ -55,6 +56,7 @@ const SliderList: React.FC<SliderListProps & IBase> = ({
           return (
             <div className={classes.card} key={uuidv4()}>
               <Card
+                className={activeMarker === item.id ? classes.active : ""}
                 onClickCard={onClickCard}
                 info={item}
                 onClickBook={() => onClickBook(item)}

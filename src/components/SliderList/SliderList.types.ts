@@ -11,6 +11,7 @@ export interface Info {
 
 export interface SliderListProps extends IBase {
   data: Info[];
+  activeMarker?: string;
   onChangeFocus?: (e: number) => void;
   onClickBook: (e: Info) => void;
   onClickCard: (e: Info) => void;

@@ -17,6 +17,9 @@ const useStyles = createUseStyles({
   card: {
     scrollSnapAlign: "start",
   },
+  active: {
+    background: "#ebeae6",
+  },
 });
 
 export default useStyles;
