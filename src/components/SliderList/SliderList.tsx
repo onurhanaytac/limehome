@@ -68,7 +68,11 @@ const SliderList: React.FC<SliderListProps & IBase> = ({
 
     const { current } = refs[activeMarker];
 
-    current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    current?.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "start",
+    });
   }, [activeMarker]);
 
   useEffect(() => {
