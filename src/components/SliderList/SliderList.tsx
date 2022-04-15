@@ -20,6 +20,16 @@ const SliderList: React.FC<SliderListProps & IBase> = ({
   const scrollRef = useRef<HTMLDivElement>(null);
   const x = useRef(0);
 
+  const debounce = (func: any, timeout = 600) => {
+    let timer: any;
+    return (...args: any) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        func.apply(this, args);
+      }, timeout);
+    };
+  };
+
   const refs = data.reduce((acc: any, value) => {
     acc[value.id] = React.createRef();
     return acc;
@@ -58,14 +68,14 @@ const SliderList: React.FC<SliderListProps & IBase> = ({
 
     const { current } = refs[activeMarker];
 
-    current?.scrollIntoView();
+    current?.scrollIntoView({ behavior: "smooth", block: "center" });
   }, [activeMarker]);
 
   return (
     <>
       <ScrollContainer
         innerRef={scrollRef}
-        onScroll={onScrollList}
+        onScroll={debounce(() => onScrollList())}
         data-testid={testId}
         className={classes.root}
       >

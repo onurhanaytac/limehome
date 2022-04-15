@@ -41,10 +41,6 @@ const Map: React.FC<MapProps> = ({
         fullscreenControl: false,
       }}
       zoom={16}
-      center={{
-        lat: 48.13598,
-        lng: 11.58643,
-      }}
       onLoad={onLoadMap}
       onUnmount={onUnmount}
     >
