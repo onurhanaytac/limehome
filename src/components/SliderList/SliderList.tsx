@@ -71,6 +71,12 @@ const SliderList: React.FC<SliderListProps & IBase> = ({
     current?.scrollIntoView({ behavior: "smooth", block: "center" });
   }, [activeMarker]);
 
+  useEffect(() => {
+    if (!scrollRef) return;
+
+    scrollRef.current?.setAttribute("data-testid", testId || "");
+  }, [testId, scrollRef]);
+
   return (
     <>
       <ScrollContainer
