@@ -8,7 +8,7 @@
     "preview": "vite preview",
     "test": "jest --no-cache",
     "generate": "node ./util/create-component",
-    "prebuild": "rimraf dist && npm run lint && npm run format",
+    "prebuild": "rimraf dist && npm run svgr",
     "format": "prettier --write src/**/*.ts{,x}",
     "lint": "tsc --noEmit && eslint src/**/*.ts{,x} --fix",
     "svgr": "node util/svgr-suffix.js && rimraf src/components/Icons && svgr --ref --ext tsx --template util/svgr-template.js -d src/components/Icons/ src/assets/icons && npm run format && npm run lint"
