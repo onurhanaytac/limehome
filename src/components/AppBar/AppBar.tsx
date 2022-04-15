@@ -1,8 +1,7 @@
 import clsx from "clsx";
 import React from "react";
 
-import BurgerIcon from "@/icons/BurgerIcon.svg?component";
-import Logo from "@/icons/Logo.svg?component";
+import { BurgerIcon, Logo } from "@/components/Icons";
 import { IBase } from "@/types";
 
 import useStyles from "./AppBar.styles";

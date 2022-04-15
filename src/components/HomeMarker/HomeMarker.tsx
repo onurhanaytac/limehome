@@ -12,8 +12,8 @@ const HomeMarker: React.FC<HomeMarkerProps> = ({
       position={position as any}
       icon={{
         url: !active
-          ? "src/icons/HomeIcon.svg"
-          : "src/icons/HomeIconActive.svg",
+          ? "src/assets/icons/HomeIcon.svg"
+          : "src/assets/icons/HomeIconActive.svg",
       }}
     />
   </>

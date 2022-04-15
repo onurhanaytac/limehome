@@ -52,7 +52,8 @@
     {
       "files": ["**/Icons/*.tsx"],
       "rules": {
-        "react/jsx-props-no-spreading": "off"
+        "react/jsx-props-no-spreading": "off",
+        "react/display-name": "off"
       }
     },
     {
