@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import ScrollContainer from "react-indiana-drag-scroll";
 import { v4 as uuidv4 } from "uuid";
 
@@ -19,6 +19,11 @@ const SliderList: React.FC<SliderListProps & IBase> = ({
   const classes = useStyles();
   const scrollRef = useRef<HTMLDivElement>(null);
   const x = useRef(0);
+
+  const refs = data.reduce((acc: any, value) => {
+    acc[value.id] = React.createRef();
+    return acc;
+  }, {});
 
   const onScrollList = useCallback(() => {
     const slidingEl: any = scrollRef.current;
@@ -48,6 +53,14 @@ const SliderList: React.FC<SliderListProps & IBase> = ({
     onChangeFocus(current);
   }, []);
 
+  useEffect(() => {
+    if (!activeMarker) return;
+
+    const { current } = refs[activeMarker];
+
+    current?.scrollIntoView();
+  }, [activeMarker]);
+
   return (
     <>
       <ScrollContainer
@@ -58,7 +71,7 @@ const SliderList: React.FC<SliderListProps & IBase> = ({
       >
         {data.map((item) => {
           return (
-            <div className={classes.card} key={uuidv4()}>
+            <div className={classes.card} key={uuidv4()} ref={refs[item.id]}>
               <Card
                 className={activeMarker === item.id ? classes.active : ""}
                 onClickCard={onClickCard}

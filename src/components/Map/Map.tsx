@@ -9,8 +9,9 @@ import { MapProps } from "./Map.types";
 
 const Map: React.FC<MapProps> = ({
   activeMarker,
-  onLoad,
   markerLocations,
+  onLoad,
+  onClickMarker,
 }: MapProps) => {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -55,6 +56,10 @@ const Map: React.FC<MapProps> = ({
               key={uuidv4()}
               position={location}
               active={location.id === activeMarker}
+              onClick={() => {
+                if (!onClickMarker) return;
+                onClickMarker(location.id);
+              }}
             />
           );
         })}

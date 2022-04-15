@@ -8,7 +8,7 @@ import { Position } from "@/types";
 
 const Listings: React.FC = () => {
   const history = useNavigate();
-  const [activeMarker, setActiveMarker] = useState<string>("");
+  const [activeMarker, setActiveMarker] = useState<string | undefined>("");
   const [hotelInfos, setHotelInfos] = useState<any[]>([]);
   const [markerLocations, setMarkerLocations] = useState<Position[]>([]);
 
@@ -69,8 +69,11 @@ const Listings: React.FC = () => {
       />
       <Map
         activeMarker={activeMarker}
-        onLoad={onLoadMap}
         markerLocations={markerLocations}
+        onLoad={onLoadMap}
+        onClickMarker={(id) => {
+          setActiveMarker(id);
+        }}
       />
     </>
   );

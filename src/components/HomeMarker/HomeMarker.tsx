@@ -6,9 +6,11 @@ import { HomeMarkerProps } from "./HomeMarker.types";
 const HomeMarker: React.FC<HomeMarkerProps> = ({
   position,
   active,
+  onClick,
 }: HomeMarkerProps) => (
   <>
     <Marker
+      onClick={onClick}
       position={position as any}
       icon={{
         url: !active
